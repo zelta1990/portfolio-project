@@ -4,4 +4,7 @@ Pillow==5.4.1
 psycopg2==2.7.6
 pytz==2018.9
 virtualenv==16.4.3
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8eeec978973fb4ae5081aee24cd0b7ecde0f6660
