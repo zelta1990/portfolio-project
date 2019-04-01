@@ -2,3 +2,5 @@ Django==2.1.7
 pytz==2018.9
 virtualenv==16.4.3
 psycopg2==2.7.6
+Pillow==5.4.1
+
