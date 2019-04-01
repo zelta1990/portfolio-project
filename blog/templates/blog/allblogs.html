@@ -13,7 +13,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
@@ -37,7 +36,7 @@
  
   </head>
   <body>
-    <header>
+      <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="navbar-brand" href="{%url 'home'%}">Xiaoshi Xie</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,51 +51,29 @@
               <li class="nav-item">
                 <a class="nav-link" href="https://github.com/zelta1990">GitHub</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'allblogs'%}">Blog</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Blog</a>
               </li>
           </div>
         </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Kia Ora, I'm Xiaoshi.</h1>
-      <p class="lead text-muted">I'm a web developer, cross reality enthusiast and linguadiscophile.</p>
-      <p>
-        <a href="mailto:xxi36@uclive.ac.nz" class="btn btn-primary my-2">Email me</a>
-      </p>
-      <img src="{%static 'sample.png'%}" width = "400" height="300" />
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" /></img>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="container">
+   <h1 class="text-center pt-3">Welcome to Xiaoshi's Blog</h1>
+   <br/>
+   <br/>
+   <h2>Latest Posts</h2>
+   <hr/>
+   {% for blog in blogs.all %}
+   <a href="{% url 'detail' blog.id%}"><h3>{{blog.title}}</h3></a>
+   {{blog.pub_date_pretty}}
+   <br/>
+   <img class="img-fluid" alt="Responsive image" src="{{blog.image.url}}"height=200 width=200/>
+   <br/>
+   <p>{{blog.summary}}</p>
+   {% endfor %}
   </div>
-
 </main>
 
 <footer class="text-muted">
